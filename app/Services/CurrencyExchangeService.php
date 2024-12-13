@@ -37,7 +37,7 @@ class CurrencyExchangeService {
             throw new \InvalidArgumentException('Invalid currencies');
         }
 
-        $rateValue      = round($ratesData[$currencyTo] / $ratesData[$currencyFrom], 10);
+        $rateValue      = $ratesData[$currencyFrom] / $ratesData[$currencyTo];
         $precision      = $currencyTo === self::CURRENCY_USD ? 2 : 10;
         $convertedValue = round($value * $rateValue * self::COMMISSION_RATE, $precision);
 
