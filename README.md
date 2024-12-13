@@ -1,6 +1,7 @@
-#тестовое задание для perfect-panel
+# тестовое задание для perfect-panel
 
-#Задание 1
+# Задание 1
+```
 SELECT 
     u.id AS ID, 
     CONCAT(u.first_name, ' ', u.last_name) AS Name,
@@ -15,8 +16,9 @@ WHERE TIMESTAMPDIFF(YEAR, u.birthday, CURDATE()) >= 7
 GROUP BY u.id, u.first_name, u.last_name, b.author
 HAVING COUNT(DISTINCT b.id) = 2 
    AND COUNT(DISTINCT b.author) = 1;
+```
 
-#Задание 2
+# Задание 2
 - 1 Установка проекта
 1) выолпнить git clone проекта
 2) открыть проект через консоль
@@ -27,19 +29,30 @@ HAVING COUNT(DISTINCT b.id) = 2
 7) php artisan migrate (опционально, так как без этого http://localhost:8080/ не откроется. Но запросы можно будет делать)
 
 - 2 Проверка работы АПИ
-1) ```curl --location 'http://localhost:8080/api/v1/rates'``` - ошибка будет, так как нет токена 
-2) ```curl --location 'http://localhost:8080/api/v1/rates?currency=BTC%2CUSD' \
---header 'Authorization: Bearer e8EA-8DLq-9Pz6P_mMBHs3w4VHEU89Q_MrFweU1-WkR'```
-3) ```curl --location 'http://localhost:8080/api/v1/rates' \
---header 'Authorization: Bearer e8EA-8DLq-9Pz6P_mMBHs3w4VHEU89Q_MrFweU1-WkR' ```
-4) ```curl --location 'http://localhost:8080/api/v1/convert' \
+1) 
+```
+    curl --location 'http://localhost:8080/api/v1/rates'
+```
+2) 
+```
+    curl --location 'http://localhost:8080/api/v1/rates?currency=BTC%2CUSD' \
+    --header 'Authorization: Bearer e8EA-8DLq-9Pz6P_mMBHs3w4VHEU89Q_MrFweU1-WkR'
+```
+3) 
+```curl --location 'http://localhost:8080/api/v1/rates' \
+--header 'Authorization: Bearer e8EA-8DLq-9Pz6P_mMBHs3w4VHEU89Q_MrFweU1-WkR' 
+```
+4) 
+```
+curl --location 'http://localhost:8080/api/v1/convert' \
 --header 'Authorization: Bearer e8EA-8DLq-9Pz6P_mMBHs3w4VHEU89Q_MrFweU1-WkR' \
 --header 'Content-Type: application/json' \
 --data '{
     "currency_from": "BTC",
     "currency_to": "USD",
     "value": 1000
-}'```
+}'
+```
 
 токен тут - https://github.com/senatorovNi/perfect-panel/blob/main/.env#L68
 
