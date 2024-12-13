@@ -39,7 +39,6 @@ class CurrencyExchangeService {
 
         $rateValue      = round($ratesData[$currencyTo] / $ratesData[$currencyFrom], 10);
         $precision      = $currencyTo === self::CURRENCY_USD ? 2 : 10;
-        dd($ratesData[$currencyTo], $ratesData[$currencyFrom]);
         $convertedValue = round($value * $rateValue * self::COMMISSION_RATE, $precision);
 
         return [
