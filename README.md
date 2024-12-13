@@ -60,3 +60,6 @@ curl --location 'http://localhost:8080/api/v1/convert' \
 1) проверку токена сделал через middleware - https://github.com/senatorovNi/perfect-panel/blob/main/app/Http/Middleware/CheckToken.php
 2) всю логику вынес в сервис для работы с апи - https://github.com/senatorovNi/perfect-panel/blob/main/app/Services/CurrencyExchangeService.php
 
+
+Под валюты не стал создавать entity, так как подумал, что это избыточно для двух методов
+
